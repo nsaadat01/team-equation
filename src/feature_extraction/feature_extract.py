@@ -7,8 +7,8 @@ import magic
 data = []
 labels = []
 
-malware_folder = ""
-non_malware_folder = ""
+malware_folder = "/team-equation/test/malware_tests/*/*"
+non_malware_folder = "/team-equation/test/nonmalware_tests/*/*"
 
 # func to extract features from a cdf v2 document
 def extract_cdf_features(file_path):
@@ -45,7 +45,7 @@ for file_name in os.listdir(malware_folder):
 
 #load non malware samples
 for file_name in os.listdir(non_malware_folder):
-    fuke_path = os.path.join(non_malware_folder, file_name)
+    file_path = os.path.join(non_malware_folder, file_name)
 
     file_type = magic.Magic()
     detected_type = file_type.from_file(file_path)
