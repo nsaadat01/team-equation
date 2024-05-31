@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Log Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        ol, ul {
+            margin: 10px 0 20px 20px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Generating Procmon Log Files</h1>
+        <p>Process Monitor is a Windows tool that monitors and logs file system, registry, and process/thread activity in real-time.</p>
+
+        <h2>Download and Install Procmon</h2>
+        <ol>
+            <li>Visit the <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon" target="_blank">Procmon download page</a>.</li>
+            <li>Download the tool and extract the files to a convenient location.</li>
+        </ol>
+
+        <h2>Run Procmon</h2>
+        <ol>
+            <li>Open the extracted folder and double-click <code>Procmon.exe</code> to launch the application.</li>
+            <li>Accept the license agreement if prompted.</li>
+        </ol>
+
+        <h2>Configure Filters (Optional)</h2>
+        <ol>
+            <li>To focus on specific events, click on the "Filter" menu and select "Filter...".</li>
+            <li>Add the filters you need, such as filtering by process name or path. Click "Add" after setting each filter, then "OK" to apply.</li>
+        </ol>
+
+        <h2>Start Logging</h2>
+        <p>By default, Procmon starts capturing events as soon as it is opened. If you stopped it, click the "Capture" icon (magnifying glass) or press <code>Ctrl+E</code> to start capturing events.</p>
+
+        <h2>Reproduce the Issue</h2>
+        <p>Perform the actions you want to log. This might include running an application, opening files, etc.</p>
+
+        <h2>Stop Logging</h2>
+        <p>Once you've reproduced the issue, stop the capture by clicking the "Capture" icon again or pressing <code>Ctrl+E</code>.</p>
+
+        <h2>Save the Log</h2>
+        <ol>
+            <li>Go to "File" > "Save...".</li>
+            <li>Select "Events displayed using current filter" to save only the filtered events or "All events" to save everything.</li>
+            <li>Choose "Native Process Monitor Format (PML)" for detailed logs or "Comma Separated Values (CSV)" for a more readable format.</li>
+            <li>Click "OK" and choose a location to save the log file.</li>
+        </ol>
+
+        <h1>Generating Wireshark Log Files</h1>
+        <p>Wireshark is a network protocol analyzer that captures and logs network packets.</p>
+
+        <h2>Download and Install Wireshark</h2>
+        <ol>
+            <li>Visit the <a href="https://www.wireshark.org/download.html" target="_blank">Wireshark download page</a>.</li>
+            <li>Download and install the appropriate version for your operating system.</li>
+        </ol>
+
+        <h2>Run Wireshark</h2>
+        <ol>
+            <li>Launch Wireshark from the Start menu or desktop shortcut.</li>
+        </ol>
+
+        <h2>Select a Network Interface</h2>
+        <p>On the main screen, you'll see a list of network interfaces. Select the one you want to capture traffic from (usually the active Ethernet or Wi-Fi connection).</p>
+
+        <h2>Start Capturing</h2>
+        <p>Click the blue shark fin icon or press <code>Ctrl+E</code> to start capturing packets on the selected interface.</p>
+
+        <h2>Reproduce the Issue</h2>
+        <p>Perform the network activity you want to log, such as browsing a website, running a network application, etc.</p>
+
+        <h2>Stop Capturing</h2>
+        <p>Once you've captured the necessary traffic, stop the capture by clicking the red square icon or pressing <code>Ctrl+E</code>.</p>
+
+        <h2>Save the Capture</h2>
+        <ol>
+            <li>Go to "File" > "Save As...".</li>
+            <li>Choose a location and enter a name for your capture file.</li>
+            <li>Ensure the file format is set to "Wireshark/tcpdump/... - pcapng" for detailed logs.</li>
+            <li>Click "Save" to save the capture file.</li>
+        </ol>
+
+        <h2>Summary</h2>
+        <ul>
+            <li>Procmon logs system activities such as file access and registry changes.</li>
+            <li>Wireshark captures and logs network traffic.</li>
+            <li>These tools are powerful and can generate detailed log files that are helpful for troubleshooting and analysis. Ensure you have appropriate permissions to run these tools and capture the necessary data.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

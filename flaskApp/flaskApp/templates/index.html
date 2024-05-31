@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Run .csv File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px; /* Adjust width if needed */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .file-upload-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button, .generate-logfiles, .upload-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        button:hover, .generate-logfiles:hover, .upload-button:hover {
+            background-color: #45a049;
+        }
+        .generate-logfiles {
+            text-decoration: none;
+            line-height: normal;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .loading-bar {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .loading-bar-inner {
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            animation: loading 5s linear infinite;
+        }
+        @keyframes loading {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload and Run .csv Log File</h1>
+        
+        <form action="{{url_for('uploadfileprocmon')}}" method="POST" enctype="multipart/form-data" class="file-upload-container">
+            <label class="file-upload">
+                Choose Procmon File
+                <input type="file" name="procmonfile" id="procmonfile" accept=".csv"/> 
+            </label>
+            <button type="submit">Upload Procmon File</button>
+        </form>
+        
+        <form action="{{url_for('uploadfilewireshark')}}" method="POST" enctype="multipart/form-data" class="file-upload-container">
+            <label class="file-upload">
+                Choose Wireshark File
+                <input type="file" name="wiresharkfile" id="wiresharkfile" accept=".csv"/> 
+            </label>
+            <button type="submit">Upload Wireshark File</button>
+        </form>
+        
+        <form action="{{url_for('runmodel')}}" method="POST" enctype="multipart/form-data">
+            <button type="submit" class="upload-button" onclick="showLoadingBar()">Analyze Files</button>
+        </form>
+        
+        <a href="{{url_for('logfiles')}}" class="generate-logfiles">How to generate logfiles</a>
+        <div id="loading-bar" class="loading-bar">
+            <div class="loading-bar-inner"></div>
+        </div>
+    </div>
+
+    <script>
+        function showLoadingBar() {
+            document.getElementById('loading-bar').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
